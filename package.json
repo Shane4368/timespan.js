@@ -1,0 +1,24 @@
+{
+	"name": "timespan.js",
+	"version": "1.0.0",
+	"description": "TimeSpan for JavaScript. Based off C#'s TimeSpan structure.",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"test": "node --use-strict ./tests/test.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Shane4368/timespan.js.git"
+	},
+	"keywords": [
+		"timespan"
+	],
+	"author": "Shane",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Shane4368/timespan.js/issues"
+	},
+	"homepage": "https://github.com/Shane4368/timespan.js#readme",
+	"dependencies": {}
+}
