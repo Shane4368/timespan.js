@@ -12,7 +12,7 @@
 		"declaration": true,
 		"declarationDir": "./dist",
 		"lib": [
-			"ES2016"
+			"ES2020"
 		]
 	},
 	"include": [
