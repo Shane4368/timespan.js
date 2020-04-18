@@ -23,5 +23,5 @@ const ts2 = TimeSpan.fromSeconds(10);
 const ts3 = ts1 - ts2;
 console.log(ts3);	// 50000
 ```
-From the above example, subtracting the TimeSpans returns the difference in milliseconds.
+From the above example, subtracting the TimeSpans return the difference in milliseconds.
 This is possible because the TimeSpan class implements its own valueOf method.
