@@ -1,4 +1,6 @@
 # TimeSpan.js
+[![Codacy Badge][codacy-badge]][codacy-dash]
+
 Based off C#'s TimeSpan structure.
 
 ## Installation
@@ -23,5 +25,34 @@ const ts2 = TimeSpan.fromSeconds(10);
 const ts3 = ts1 - ts2;
 console.log(ts3);	// 50000
 ```
+
 From the above example, subtracting the TimeSpans return the difference in milliseconds.
 This is possible because the TimeSpan class implements its own valueOf method.
+
+### Parsing
+```js
+const ts1 = TimeSpan.parse("2.04:10:05.006");	// Can also be formatted 00:00:00
+
+const ts2 = TimeSpan.parse("2 days 4 hrs 10 mins 5.006 secs".split(" "));
+
+const ts3 = TimeSpan.parse([2, 4, 10, 5, 6]);	// days, hrs, mins, secs, ms
+const ts4 = TimeSpan.parse([2, 4, 10, 5]);	// days, hrs, mins, secs
+const ts5 = TimeSpan.parse([2, 4, 10]);	// hrs, mins, secs
+```
+
+#### Table showing valid units for the second method of parsing
+Days | Hours | Minutes | Seconds
+:--: | :---: | :-----: | :------:
+days | hours | minutes | seconds
+day  | hour  | minute  | second
+---- | hrs   | mins    | secs
+---- | hr    | min     | sec
+
+*NOTE: You'd need to provide seconds as a decimal if you wish to specify milliseconds.*
+
+
+[//]: # (-- REFERENCE LINKS --)
+
+[codacy-badge]: https://api.codacy.com/project/badge/Grade/1827d938c0d94d8bbe3ad8f1df7393ee
+
+[codacy-dash]: https://www.codacy.com/manual/Shane4368/timespan.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Shane4368/timespan.js&amp;utm_campaign=Badge_Grade
