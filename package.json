@@ -4,8 +4,13 @@
 	"description": "TimeSpan for JavaScript. Based off C#'s TimeSpan structure.",
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"files": [
+		"./dist"
+	],
 	"scripts": {
-		"test": "node --use-strict ./tests/test.js"
+		"prepublish": "tsc",
+		"test:parse": "node ./test/parse.js",
+		"test:valueof": "node ./test/valueof.js"
 	},
 	"repository": {
 		"type": "git",
