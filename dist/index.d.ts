@@ -1,4 +1,4 @@
-declare class TimeSpan {
+export declare class TimeSpan {
     readonly totalMilliseconds: number;
     readonly totalSeconds: number;
     readonly totalMinutes: number;
@@ -56,5 +56,3 @@ declare class TimeSpan {
      */
     static tryParse(value: string | Array<string | number>): TimeSpan | null;
 }
-export default TimeSpan;
-export { TimeSpan };

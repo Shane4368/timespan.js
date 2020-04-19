@@ -1,5 +1,9 @@
 # TimeSpan.js
+
 [![Codacy Badge][codacy-badge]][codacy-dash]
+![GitHub package.json version][package.json-version]
+![GitHub LICENSE](https://img.shields.io/github/license/Shane4368/timespan.js.svg)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
 Based off C#'s TimeSpan structure.
 
@@ -52,6 +56,8 @@ day  | hour  | minute  | second
 
 
 [//]: # (-- REFERENCE LINKS --)
+
+[package.json-version]: https://img.shields.io/github/package-json/v/Shane4368/timespan.js.svg
 
 [codacy-badge]: https://api.codacy.com/project/badge/Grade/1827d938c0d94d8bbe3ad8f1df7393ee
 

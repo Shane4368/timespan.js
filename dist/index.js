@@ -7,10 +7,12 @@ class TimeSpan {
      * @throws {RangeError}
      */
     constructor(milliseconds) {
-        if (isNaN(milliseconds))
+        if (isNaN(milliseconds)) {
             throw new TypeError(`Type 'number' expected. Received type '${typeof milliseconds}'`);
-        if (milliseconds < Number.MIN_SAFE_INTEGER || milliseconds > Number.MAX_SAFE_INTEGER)
+        }
+        if (milliseconds < Number.MIN_SAFE_INTEGER || milliseconds > Number.MAX_SAFE_INTEGER) {
             throw new RangeError("Argument must be within range Number.MIN_SAFE_INTEGER and Number.MAX_SAFE_INTEGER");
+        }
         this.totalMilliseconds = Math.round(milliseconds);
         this.totalSeconds = this.totalMilliseconds / TimeSpan.MILLISECONDS_PER_SECOND;
         this.totalMinutes = this.totalMilliseconds / TimeSpan.MILLISECONDS_PER_MINUTE;
@@ -35,8 +37,9 @@ class TimeSpan {
         return new TimeSpan(this.totalMilliseconds * value);
     }
     divide(value) {
-        if (value instanceof TimeSpan)
+        if (value instanceof TimeSpan) {
             return this.totalMilliseconds / value.totalMilliseconds;
+        }
         return new TimeSpan(this.totalMilliseconds / value);
     }
     /**
@@ -182,4 +185,3 @@ class TimeSpan {
     }
 }
 exports.TimeSpan = TimeSpan;
-exports.default = TimeSpan;

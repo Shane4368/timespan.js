@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"module": "commonjs",
+		"moduleResolution": "node",
 		"target": "ES2015",
 		"noImplicitAny": true,
 		"preserveConstEnums": true,
@@ -17,8 +18,5 @@
 	},
 	"include": [
 		"./src/**/*"
-	],
-	"exclude": [
-		"node_modules"
 	]
 }

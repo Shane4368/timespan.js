@@ -1,4 +1,4 @@
-class TimeSpan {
+export class TimeSpan {
 	public readonly totalMilliseconds: number;
 	public readonly totalSeconds: number;
 	public readonly totalMinutes: number;
@@ -16,11 +16,13 @@ class TimeSpan {
 	 * @throws {RangeError}
 	 */
 	public constructor(milliseconds: number) {
-		if (isNaN(milliseconds))
+		if (isNaN(milliseconds)) {
 			throw new TypeError(`Type 'number' expected. Received type '${typeof milliseconds}'`);
+		}
 
-		if (milliseconds < Number.MIN_SAFE_INTEGER || milliseconds > Number.MAX_SAFE_INTEGER)
+		if (milliseconds < Number.MIN_SAFE_INTEGER || milliseconds > Number.MAX_SAFE_INTEGER) {
 			throw new RangeError("Argument must be within range Number.MIN_SAFE_INTEGER and Number.MAX_SAFE_INTEGER");
+		}
 
 		this.totalMilliseconds = Math.round(milliseconds);
 		this.totalSeconds = this.totalMilliseconds / TimeSpan.MILLISECONDS_PER_SECOND;
@@ -51,8 +53,9 @@ class TimeSpan {
 	}
 
 	public divide(value: number | TimeSpan): number | TimeSpan {
-		if (value instanceof TimeSpan)
+		if (value instanceof TimeSpan) {
 			return this.totalMilliseconds / value.totalMilliseconds;
+		}
 
 		return new TimeSpan(this.totalMilliseconds / value);
 	}
@@ -60,7 +63,7 @@ class TimeSpan {
 	/**
 	 * @param {boolean} [precise=false] - Whether or not to include the millisecond component.
 	 */
-	public toString(precise: boolean = false): string {
+	public toString(precise = false): string {
 		const hrs = this.hours >= 10 ? this.hours : "0" + this.hours;
 		const mins = this.minutes >= 10 ? this.minutes : "0" + this.minutes;
 		const secs = this.seconds >= 10 ? this.seconds : "0" + this.seconds;
@@ -224,10 +227,11 @@ class TimeSpan {
 	 * const ts3 = TimeSpan.tryParse([2, 4, 10, 5, 6]);
 	 */
 	public static tryParse(value: string | Array<string | number>): TimeSpan | null {
-		try { return this.parse(value); }
-		catch{ return null; }
+		try {
+			return this.parse(value);
+		}
+		catch {
+			return null;
+		}
 	}
 }
-
-export default TimeSpan;
-export { TimeSpan };
