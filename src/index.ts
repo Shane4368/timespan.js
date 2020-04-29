@@ -1,21 +1,21 @@
 export class TimeSpan {
-	public readonly totalMilliseconds: number;
-	public readonly totalSeconds: number;
-	public readonly totalMinutes: number;
-	public readonly totalHours: number;
-	public readonly totalDays: number;
-	public readonly days: number;
-	public readonly hours: number;
-	public readonly minutes: number;
-	public readonly seconds: number;
-	public readonly milliseconds: number;
+	readonly totalMilliseconds: number;
+	readonly totalSeconds: number;
+	readonly totalMinutes: number;
+	readonly totalHours: number;
+	readonly totalDays: number;
+	readonly days: number;
+	readonly hours: number;
+	readonly minutes: number;
+	readonly seconds: number;
+	readonly milliseconds: number;
 
 	/**
 	 * @param {number} milliseconds
 	 * @throws {TypeError}
 	 * @throws {RangeError}
 	 */
-	public constructor(milliseconds: number) {
+	constructor(milliseconds: number) {
 		if (isNaN(milliseconds)) {
 			throw new TypeError(`Type 'number' expected. Received type '${typeof milliseconds}'`);
 		}
@@ -36,23 +36,23 @@ export class TimeSpan {
 		this.milliseconds = Math.floor(this.totalMilliseconds % 1000);
 	}
 
-	public equals(timespan: TimeSpan): boolean {
+	equals(timespan: TimeSpan): boolean {
 		return this.totalMilliseconds === timespan.totalMilliseconds;
 	}
 
-	public add(timespan: TimeSpan): TimeSpan {
+	add(timespan: TimeSpan): TimeSpan {
 		return new TimeSpan(this.totalMilliseconds + timespan.totalMilliseconds);
 	}
 
-	public subtract(timespan: TimeSpan): TimeSpan {
+	subtract(timespan: TimeSpan): TimeSpan {
 		return new TimeSpan(this.totalMilliseconds - timespan.totalMilliseconds);
 	}
 
-	public multiply(value: number): TimeSpan {
+	multiply(value: number): TimeSpan {
 		return new TimeSpan(this.totalMilliseconds * value);
 	}
 
-	public divide(value: number | TimeSpan): number | TimeSpan {
+	divide(value: number | TimeSpan): number | TimeSpan {
 		if (value instanceof TimeSpan) {
 			return this.totalMilliseconds / value.totalMilliseconds;
 		}
@@ -63,7 +63,7 @@ export class TimeSpan {
 	/**
 	 * @param {boolean} [precise=false] - Whether or not to include the millisecond component.
 	 */
-	public toString(precise = false): string {
+	toString(precise = false): string {
 		const hrs = this.hours >= 10 ? this.hours : "0" + this.hours;
 		const mins = this.minutes >= 10 ? this.minutes : "0" + this.minutes;
 		const secs = this.seconds >= 10 ? this.seconds : "0" + this.seconds;
@@ -90,51 +90,51 @@ export class TimeSpan {
 	/**
 	 * @returns {number} The primitive value in milliseconds.
 	 */
-	public valueOf(): number {
+	valueOf(): number {
 		return this.totalMilliseconds;
 	}
 
-	public static get MAX_VALUE(): TimeSpan {
+	static get MAX_VALUE(): TimeSpan {
 		return new TimeSpan(Number.MAX_SAFE_INTEGER);
 	}
 
-	public static get MIN_VALUE(): TimeSpan {
+	static get MIN_VALUE(): TimeSpan {
 		return new TimeSpan(Number.MIN_SAFE_INTEGER);
 	}
 
-	public static get MILLISECONDS_PER_SECOND(): number {
+	static get MILLISECONDS_PER_SECOND(): number {
 		return 1e3;
 	}
 
-	public static get MILLISECONDS_PER_MINUTE(): number {
+	static get MILLISECONDS_PER_MINUTE(): number {
 		return 6e4;
 	}
 
-	public static get MILLISECONDS_PER_HOUR(): number {
+	static get MILLISECONDS_PER_HOUR(): number {
 		return 3.6e6;
 	}
 
-	public static get MILLISECONDS_PER_DAY(): number {
+	static get MILLISECONDS_PER_DAY(): number {
 		return 8.64e7;
 	}
 
-	public static fromMilliseconds(milliseconds: number): TimeSpan {
+	static fromMilliseconds(milliseconds: number): TimeSpan {
 		return new TimeSpan(milliseconds);
 	}
 
-	public static fromSeconds(seconds: number): TimeSpan {
+	static fromSeconds(seconds: number): TimeSpan {
 		return new TimeSpan(seconds * TimeSpan.MILLISECONDS_PER_SECOND);
 	}
 
-	public static fromMinutes(minutes: number): TimeSpan {
+	static fromMinutes(minutes: number): TimeSpan {
 		return new TimeSpan(minutes * TimeSpan.MILLISECONDS_PER_MINUTE);
 	}
 
-	public static fromHours(hours: number): TimeSpan {
+	static fromHours(hours: number): TimeSpan {
 		return new TimeSpan(hours * TimeSpan.MILLISECONDS_PER_HOUR);
 	}
 
-	public static fromDays(days: number): TimeSpan {
+	static fromDays(days: number): TimeSpan {
 		return new TimeSpan(days * TimeSpan.MILLISECONDS_PER_DAY);
 	}
 
@@ -144,7 +144,7 @@ export class TimeSpan {
 	 * const ts2 = TimeSpan.parse("2 days 4 hrs 10 mins 5.006 secs".split(" "));
 	 * const ts3 = TimeSpan.parse([2, 4, 10, 5, 6]);
 	 */
-	public static parse(value: string | Array<string | number>): TimeSpan {
+	static parse(value: string | Array<string | number>): TimeSpan {
 		let totalMilliseconds = 0;
 
 		if (typeof value === "string") {
@@ -226,7 +226,7 @@ export class TimeSpan {
 	 * const ts2 = TimeSpan.tryParse("2 days 4 hrs 10 mins 5.006 secs".split(" "));
 	 * const ts3 = TimeSpan.tryParse([2, 4, 10, 5, 6]);
 	 */
-	public static tryParse(value: string | Array<string | number>): TimeSpan | null {
+	static tryParse(value: string | Array<string | number>): TimeSpan | null {
 		try {
 			return this.parse(value);
 		}

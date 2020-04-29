@@ -1,0 +1,4 @@
+# Ignoring diff for these files
+package-lock.json		-diff
+webpack/				-diff
+dist/					-diff

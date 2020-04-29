@@ -26,8 +26,8 @@ console.log(ts);
 const ts1 = TimeSpan.fromMinutes(1);
 const ts2 = TimeSpan.fromSeconds(10);
 
-const ts3 = ts1 - ts2;
-console.log(ts3);	// 50000
+console.log(ts1 - ts2);	// 50000
+console.log(ts1 + ts2);	// 70000
 ```
 
 From the above example, subtracting the TimeSpans return the difference in milliseconds.
