@@ -41,7 +41,7 @@ const ts2 = TimeSpan.parse("2 days 4 hrs 10 mins 5.006 secs".split(" "));
 
 const ts3 = TimeSpan.parse([2, 4, 10, 5, 6]);	// days, hrs, mins, secs, ms
 const ts4 = TimeSpan.parse([2, 4, 10, 5]);	// days, hrs, mins, secs
-const ts5 = TimeSpan.parse([2, 4, 10]);	// hrs, mins, secs
+const ts5 = TimeSpan.parse([2, 4, 10]);		// hrs, mins, secs
 ```
 
 #### Table showing valid units for the second method of parsing
@@ -54,11 +54,8 @@ day  | hour  | minute  | second
 
 *NOTE: You'd need to provide seconds as a decimal if you wish to specify milliseconds.*
 
-
-[//]: # (-- REFERENCE LINKS --)
+<!-- -------------------------------- REFERENCE LINKS -------------------------------- -->
 
 [package.json-version]: https://img.shields.io/github/package-json/v/Shane4368/timespan.js.svg
-
 [codacy-badge]: https://api.codacy.com/project/badge/Grade/1827d938c0d94d8bbe3ad8f1df7393ee
-
 [codacy-dash]: https://www.codacy.com/manual/Shane4368/timespan.js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Shane4368/timespan.js&amp;utm_campaign=Badge_Grade
